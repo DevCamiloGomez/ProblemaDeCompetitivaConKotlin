@@ -1,17 +1,41 @@
+import kotlin.collections.get
+import kotlin.rem
+import kotlin.text.append
+
 fun main() {
 
-    val n = readLine()!!.split(" ").map { it.toInt() }
-    val x = StringBuilder()
+    /*
+    A. Even Odds
+time limit per test1 second
+memory limit per test256 megabytes
+Being a nonconformist, Volodya is displeased with the current state of things, particularly with the order of natural numbers (natural number is positive integer number). He is determined to rearrange them. But there are too many natural numbers, so Volodya decided to start with the first n. He writes down the following sequence of numbers: firstly all odd integers from 1 to n (in ascending order), then all even integers from 1 to n (also in ascending order). Help our hero to find out which number will stand at the position number k.
 
-    for (i in 0 until n.size) {
-        if (n[i] % 2 != 0 && i < n.size / 2) {
-            x.append(n[i])
-        } else if (n[i] % 2 == 0) {
-            x.append(n[i])
-        }
+Input
+The only line of input contains integers n and k (1 ≤ k ≤ n ≤ 1012).
+
+Please, do not use the %lld specifier to read or write 64-bit integers in C++. It is preferred to use the cin, cout streams or the %I64d specifier.
+
+Output
+Print the number that will stand at the position number k after Volodya's manipulations.
+     */
+    val input = readLine()!!.split(" ")
+    val n = input[0].toLong()
+    val k = input[1].toLong()
+
+    // The number of odd integers between 1 and n
+    val countOfOdds = (n + 1) / 2
+
+    if (k <= countOfOdds) {
+        // If k is in the first half (odds), the k-th odd number is 2k - 1
+        println(2 * k - 1)
+    } else {
+        // If k is in the second half (evens), find its relative position
+        val positionInEvens = k - countOfOdds
+        println(2 * positionInEvens)
     }
 
-    for (i in 0 until x.length) {
-
-    }
 }
+
+
+
+
