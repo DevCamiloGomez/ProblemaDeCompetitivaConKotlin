@@ -17,6 +17,6 @@ Examples
 
     val capitalizedStr = n.replaceRange(0, 1, n[0].uppercase())
 
-    println(capitalizedStr) // Output: Example
+    println(capitalizedStr)
 
 }
